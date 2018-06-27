@@ -1,0 +1,14 @@
+[Unit]
+Description=Zookeeper Service
+After=NetworkManager.service
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/kafka_2.12-1.1.0
+
+User=root
+Group=root
+
+ExecStart=/opt/kafka_2.12-1.1.0/bin/zookeeper-server-start.sh -daemon /opt/kafka_2.12-1.1.0/config/zookeeper.properties
+ExecStop=/opt/kafka_2.12-1.1.0/bin/zookeeper-server-stop.sh /opt/kafka_2.12-1.1.0/config/zookeeper.properties
+

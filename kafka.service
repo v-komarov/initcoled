@@ -1,0 +1,13 @@
+[Unit]
+Description=Kafka Service
+After=zookeeper.service
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/kafka_2.12-1.1.0
+
+User=root
+Group=root
+
+ExecStart=/opt/kafka_2.12-1.1.0/bin/kafka-server-start.sh -daemon /opt/kafka_2.12-1.1.0/config/server.properties
+ExecStop=/opt/kafka_2.12-1.1.0/bin/kafka-server-stop.sh /opt/kafka_2.12-1.1.0/config/server.properties
